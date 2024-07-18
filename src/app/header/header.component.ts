@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
    <header>
-     <img [src]="logoPath" alt="" />
+     <img [src]="logoPath" alt="Logo image of investment calculator" />
      <h1>Investment calculator</h1>
   </header>
   `,

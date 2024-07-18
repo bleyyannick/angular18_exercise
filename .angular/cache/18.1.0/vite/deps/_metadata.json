@@ -1,25 +1,34 @@
 {
-  "hash": "f0a9c75e",
-  "configHash": "207013f8",
+  "hash": "20dcfdfc",
+  "configHash": "61410438",
   "lockfileHash": "62077a22",
-  "browserHash": "097c63cf",
+  "browserHash": "8d2de5e0",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "e8daa4de",
+      "fileHash": "b9e48348",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "e96cb457",
+      "fileHash": "058475b1",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "6a343f43",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-UGAN4Z3Y": {
-      "file": "chunk-UGAN4Z3Y.js"
+    "chunk-YDUDBZBR": {
+      "file": "chunk-YDUDBZBR.js"
+    },
+    "chunk-EDLLBF6K": {
+      "file": "chunk-EDLLBF6K.js"
     }
   }
 }
