@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { InvestmentResultsService } from '../../investment-results.service';
+
 
 @Component({
   selector: 'app-user-input',
@@ -51,23 +51,26 @@ import { InvestmentResultsService } from '../../investment-results.service';
 })
 export class UserInputComponent {
 
+   investmentData = output<{
+    initialInvestment: number,
+    annualInvestment: number,
+    expectedReturn: number,
+    duration: number
+   }>()
+
    initalInvestment = '0'; 
    annualInvestment = '0';
    expectedReturn = '5';
    duration = '10'
 
-   investmentResultsService = inject(InvestmentResultsService);
-   
-
   onSubmit() {
-    console.log('Form submitted');
-     console.log(this.investmentResultsService.calculateInvestmentResults({
+    this.investmentData.emit({
       initialInvestment: +this.initalInvestment,
       annualInvestment: +this.annualInvestment,
       expectedReturn: +this.expectedReturn,
       duration: +this.duration
-    }))
+    })
   }
-
-
 }
+
+ 

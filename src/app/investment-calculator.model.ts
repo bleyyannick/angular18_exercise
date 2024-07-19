@@ -7,3 +7,10 @@ export interface InvestmentResults {
     totalInterest: number;
     totalAmountInvested: number;
 }
+
+export interface InvestmentData {
+    initialInvestment: number;
+    annualInvestment: number;
+    expectedReturn: number;
+    duration: number;
+}
