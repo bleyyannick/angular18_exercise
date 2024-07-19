@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { HeaderComponent } from "./header/header.component";
 import { UserInputComponent } from "./user-input/user-input.component";
 import { InvestmentResultsService } from '../investment-results.service';
@@ -12,10 +12,8 @@ import { AppResultsComponent } from "./app-results/app-results.component";
     <app-header />
     <app-user-input (investmentData)="submitData($event)" />
     @if(isDataAvailable) {
-      @for (investmentResult of investmentResults; track investmentResult.year) {
-        <app-app-results [investmentData]="investmentResult" />
+        <app-app-results [results]="investmentResults()" />
       }
-    }
 
     
   `,
@@ -25,10 +23,10 @@ export class AppComponent {
 
   isDataAvailable = false;
   investmentResultsService = inject(InvestmentResultsService); 
-  investmentResults: InvestmentResults[] = []
+  investmentResults =  signal<InvestmentResults[] | undefined>([]);
 
   submitData(investmentData: InvestmentData) {
-    this.investmentResults = this.investmentResultsService.calculateInvestmentResults(investmentData);
+    this.investmentResults.set(this.investmentResultsService.calculateInvestmentResults(investmentData));
     this.isDataAvailable = true;
   }
 }
