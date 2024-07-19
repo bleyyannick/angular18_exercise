@@ -7,7 +7,7 @@ import { FormsModule, NgForm } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   template: ` 
-   <form (ngSubmit)="onSubmit()" #investForm="ngForm">
+   <form (ngSubmit)="onSubmit(investForm)" #investForm="ngForm">
     <div class="input-group">
       <p>
         <label for="initial-investment">Initial investment</label>
@@ -63,20 +63,15 @@ export class UserInputComponent {
    expectedReturn = signal('5');
    duration = signal('10');
 
-  onSubmit() {
+  onSubmit(form: NgForm) {
     this.investmentData.emit({
       initialInvestment: +this.initalInvestment(),
       annualInvestment: +this.annualInvestment(),
       expectedReturn: +this.expectedReturn(),
       duration: +this.duration()
     });
-    this.initalInvestment.set('0');
-    this.annualInvestment.set('0');
-    this.expectedReturn.set('5');
-    this.duration.set('10');
+    form.reset();
   }
-
-  
   
 }
 
